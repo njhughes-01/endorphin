@@ -45,6 +45,20 @@ position_max: 200
 
 Now save and restart and you're done. Seriously, you're done.
 
+### EVA with Rear Belt Clips
+
+{: .warning }
+If you followed the default EVA assembly instructions, your belt clips may be attached to the **rear posts** of the printhead. This causes the toolhead to move diagonally (~45°) during Y-only moves with the stock `hybrid_corexy` kinematics. See [Rear Belt Clip Kinematics](/docs/rear-belt-kinematics) for the full explanation and fix.
+
+**Short version:** if you have rear belt clips, use this instead:
+
+```yml
+[printer]
+kinematics: hybrid_corexy_rear_belt
+```
+
+And copy [`hybrid_corexy_rear_belt.py`](https://github.com/njhughes-01/endorphin/blob/main/klipper/kinematics/hybrid_corexy_rear_belt.py) into `~/klipper/klippy/kinematics/` on your Pi.
+
 ### Marlin (Original Firmware)
 
 The Marlin firmware is a bit trickier. To change the kinematics here you need to recompile and flash the firmware on your board.
