@@ -71,6 +71,9 @@ Make sure you print the MGN9**H** version of the carriage top (assuming you boug
 ### Belt Clips
 
 Either of the following belt clips provided with the printhead will work fine so pick whichever one you prefer. The original Vz printhead has been modified so that the posts sit at the right height for the Endorphin belts. Just remember that you only need to print off clips for 2 belt ends rather than the 4 needed in a CoreXY, which means you can choose whether you want to attach the belt ends on the front or rear posts (just don't do one front and one rear). The other side will be unused.
+
+{: .important }
+**Front vs. rear posts affects your Klipper config.** Front clips use the stock `kinematics: hybrid_corexy`. Rear clips require `kinematics: hybrid_corexy_rear_belt` — otherwise Y moves will be diagonal. See [Rear Belt Clip Kinematics](/docs/rear-belt-kinematics) for the fix.
 {: .mb-8 }
 
 {% capture belts1 %}
@@ -105,6 +108,9 @@ The official EVA v3 design only required three parts to be modified in order to 
 | top_endstop_mgn12c_fi    | [eva-eva-mgn9h.stl](https://raw.githubusercontent.com/endorphin3d/endorphin/main/STLs/stage-3/eva-mgn9h.stl)                               |
 
 You also don't need to print `face_belt_grabber.stl` because the Endorphin doesn't have a belt that attaches to the front of the EVA in the same way that a CoreXY does.
+
+{: .warning }
+**Belt clip placement determines which Klipper kinematics you need.** The EVA carrier has posts on both front and rear — `eva-endorphin_belt_grabber.stl` fits either. If you attach the clips to the **rear posts** (which the EVA belt-routing video leads many builders to do), you must use `kinematics: hybrid_corexy_rear_belt` in `printer.cfg` instead of `hybrid_corexy`. Front clips use the stock setting. See [Rear Belt Clip Kinematics](/docs/rear-belt-kinematics) for details.
 
 After you've printed the core printhead, you can choose the fan duct, hotend, and extruder that suits you. If you don't see your preferred parts on the official site, make sure to check sites like [printables](https://www.printables.com/search/models?q=tag:eva3) for what you need.
 
